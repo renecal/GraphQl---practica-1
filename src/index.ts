@@ -8,7 +8,7 @@ const typeDefs  = `#graphql
         email: String
     }
     type Query {
-        users: User
+        users: [User]
     }
 `;
 
@@ -27,7 +27,7 @@ const users = [
 // Resolvers
 const resolvers = {
     Query: {
-        users: () => users[0]
+        users: () => users
     }
 };
 
