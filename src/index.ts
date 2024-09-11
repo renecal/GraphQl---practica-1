@@ -4,7 +4,7 @@ import  { startStandaloneServer } from "@apollo/server/standalone";
 //Type query
 const typeDefs  = `#graphql
     type User {
-        name: String
+        name: String!
         email: String
     }
     type Query {
@@ -14,8 +14,7 @@ const typeDefs  = `#graphql
 
 // Dataset Users
 const users = [
-    {
-        name: 'John Doe',
+    {   //"message": "Cannot return null for non-nullable field User.name.",
         email: 'test@test.cl',
     },
     {
