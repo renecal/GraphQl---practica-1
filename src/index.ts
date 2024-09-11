@@ -1,4 +1,7 @@
-//Tipo query
+import { ApolloServer } from "@apollo/server";
+import  { startStandaloneServer } from "@apollo/server/standalone";
+
+//Type query
 const typeDefs  = `#graphql
     type User {
         name: String
@@ -27,3 +30,14 @@ const resolvers = {
         users: () => users[0]
     }
 };
+
+// Server
+const server = new ApolloServer({ typeDefs, resolvers });
+
+// Start server
+const { url } = await startStandaloneServer( server, {
+    listen: {
+        port: 4000,
+    }
+});
+console.log(`Server ready at ${url}`);
