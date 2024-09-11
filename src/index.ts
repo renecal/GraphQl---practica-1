@@ -4,22 +4,36 @@ import  { startStandaloneServer } from "@apollo/server/standalone";
 //Type query
 const typeDefs  = `#graphql
     type User {
-        name: String!
+        name: String
         email: String
+        role: Role
     }
+
+    type Role {
+        name: String
+    }
+
     type Query {
         users: [User]
+        roles: [Role]
     }
 `;
 
 // Dataset Users
 const users = [
-    {   //"message": "Cannot return null for non-nullable field User.name.",
+    {  
+        name: 'Rene c',
         email: 'test@test.cl',
+        role:{
+            name: "admin"
+        }
     },
     {
         name: 'Jane Doe',
         email: 'test2@test2,cl',
+        role:{
+            name: "user"
+        }
     }
 ];
 
