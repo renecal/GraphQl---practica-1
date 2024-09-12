@@ -11,13 +11,17 @@ const typeDefs  = `#graphql
         role: Role
     }
 
+    input UserID {
+        uid: ID
+    }
+
     type Role {
         name: String
     }
 
     type Query {
         users: [User]
-        user: User
+        user(id: UserID!): [User]
         roles: [Role]
     }
 `;
@@ -46,7 +50,9 @@ const resolvers = {
     Query: {
         users: () => users,
         user: (parent, args, context, info) => {
-            console.log(parent) 
+            const { uid } = args.id
+            //filter
+            return users.filter((user) => user.id === uid);
           },
     }
 };
