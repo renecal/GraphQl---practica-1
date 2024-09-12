@@ -10,6 +10,6 @@
       "types": ["node"]
     },
     "ts-node":{
-      "esm": true
+      "esm": true,
     }
 }
