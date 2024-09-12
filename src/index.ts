@@ -22,6 +22,7 @@ const typeDefs  = `#graphql
     type Query {
         users: [User]
         user(id: UserID!): [User]
+        #user(id: UserID!): User #con find
         roles: [Role]
     }
 `;
@@ -51,8 +52,10 @@ const resolvers = {
         users: () => users,
         user: (parent, args, context, info) => {
             const { uid } = args.id
-            //filter
-            return users.filter((user) => user.id === uid);
+            //con filter
+           return users.filter((user) => user.id === uid);
+           //con find            
+           //return users.find((user) => user.id === uid);
           },
     }
 };
