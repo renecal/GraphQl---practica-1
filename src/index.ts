@@ -17,6 +17,7 @@ const typeDefs  = `#graphql
 
     type Query {
         users: [User]
+        user: User
         roles: [Role]
     }
 `;
@@ -43,7 +44,10 @@ const users = [
 // Resolvers
 const resolvers = {
     Query: {
-        users: () => users
+        users: () => users,
+        user: (parent, args, context, info) => {
+            console.log(parent) 
+          },
     }
 };
 
