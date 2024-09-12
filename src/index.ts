@@ -1,9 +1,11 @@
 import { ApolloServer } from "@apollo/server";
 import  { startStandaloneServer } from "@apollo/server/standalone";
+import { v4 as uuid } from "uuid";
 
 //Type query
 const typeDefs  = `#graphql
     type User {
+        id: ID
         name: String
         email: String
         role: Role
@@ -21,7 +23,7 @@ const typeDefs  = `#graphql
 
 // Dataset Users
 const users = [
-    {  
+    {  id: uuid(),
         name: 'Rene c',
         email: 'test@test.cl',
         role:{
@@ -29,6 +31,7 @@ const users = [
         }
     },
     {
+        id: uuid(),
         name: 'Jane Doe',
         email: 'test2@test2,cl',
         role:{
