@@ -23,7 +23,6 @@ const typeDefs  = `#graphql
         users: [User]
         user(id: UserID!): [User]
         #user(id: UserID!): User #con find
-        roles: [Role]
     }
 `;
 

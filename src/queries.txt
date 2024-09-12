@@ -1,0 +1,58 @@
+// queries de apollo server
+
+query FindAllUsers{
+    users{
+      id
+      email
+      role{
+        name
+      }
+    }
+  }
+
+// Inputs
+  query FindUserById{
+  user ( id : {
+    uid: "66231919-845d-402d-bb47-80a1289c7521"
+  }){
+    id
+    email
+    role{
+      name
+    }
+  }
+}
+
+// operation variables
+
+    query FindUserById( $userId: UserID!){
+    user ( id : $userId){
+        id
+        email
+        role{
+        name
+        }
+    }
+    }
+
+    //variables params
+    {
+    "userId": {
+        "uid": "302eff38-5f82-4ff4-935e-6abd65fa5f42" 
+    }
+    }
+
+    //response
+    {
+    "data": {
+        "user": [
+        {
+            "id": "302eff38-5f82-4ff4-935e-6abd65fa5f42",
+            "email": "test@test.cl",
+            "role": {
+            "name": "admin"
+            }
+        }
+        ]
+    }
+    }
