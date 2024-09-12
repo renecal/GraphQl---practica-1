@@ -56,3 +56,37 @@ query FindAllUsers{
         ]
     }
     }
+
+  //__typename
+
+  query getTypeNames {
+    users {
+      __typename
+      role{
+        __typename
+        name
+      }
+    }
+  }
+  ///response __typename
+
+  {
+  "data": {
+    "users": [
+      {
+        "__typename": "User",
+        "role": {
+          "__typename": "Role",
+          "name": "admin"
+        }
+      },
+      {
+        "__typename": "User",
+        "role": {
+          "__typename": "Role",
+          "name": "user"
+        }
+      }
+    ]
+  }
+}
